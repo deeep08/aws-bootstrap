@@ -62,5 +62,5 @@ aws cloudformation deploy \
 if [ $? -eq 0 ]; then
   aws cloudformation list-exports \
     --profile deeep08 \
-    --query "Exports[?Name=='InstanceEndpoint'].Value" 
+    --query "Exports[?starts_with(Name, 'DsbAwsBootstrapInstance')].Value"
 fi
