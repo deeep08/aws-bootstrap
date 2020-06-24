@@ -1,6 +1,6 @@
 const { hostname } = require('os');
 const http = require('http');
-const message = `Hello Deep\nYou are on Cloud at instance: ${hostname()}\n`;
+const message = `Hello Deep\nYou are on Cloud at instance: ${hostname()}\nServer time: ${new Date()} \n`;
 const port = 8080;
 const server = http.createServer((req, res) => {
 	res.statusCode = 200;
