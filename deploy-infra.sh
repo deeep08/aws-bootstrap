@@ -13,6 +13,8 @@ CLI_PROFILE=deeep08
 
 EC2_INSTANCE_TYPE=t2.micro
 
+DOMAIN=deeep08.com
+
 CODEPIPELINE_BUCKET="$STACK_NAME-$REGION-codepipeline-$AWS_ACCOUNT_ID"
 CFN_BUCKET="$STACK_NAME-$REGION-cfn-$AWS_ACCOUNT_ID"
 
@@ -61,7 +63,8 @@ aws cloudformation deploy \
     GitHubRepo="$GH_REPO" \
     GitHubBranch=$GH_BRANCH \
     GitHubPersonalAccessToken="$GH_ACCESS_TOKEN" \
-    CodePipelineBucket="$CODEPIPELINE_BUCKET"
+    CodePipelineBucket="$CODEPIPELINE_BUCKET" \
+    Domain="$DOMAIN"
 
 #aws cloudformation create-stack \
 #  --disable-rollback \
