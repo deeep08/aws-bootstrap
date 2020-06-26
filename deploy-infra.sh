@@ -15,6 +15,9 @@ EC2_INSTANCE_TYPE=t2.micro
 
 DOMAIN=deeep08.com
 
+CERT=$(aws acm list-certificates --region $REGION --profile $CLI_PROFILE --output text \
+        --query "CertificateSummaryList[?DomainName=='*.$DOMAIN'].CertificateArn | [0]")
+
 CODEPIPELINE_BUCKET="$STACK_NAME-$REGION-codepipeline-$AWS_ACCOUNT_ID"
 CFN_BUCKET="$STACK_NAME-$REGION-cfn-$AWS_ACCOUNT_ID"
 
@@ -64,7 +67,8 @@ aws cloudformation deploy \
     GitHubBranch=$GH_BRANCH \
     GitHubPersonalAccessToken="$GH_ACCESS_TOKEN" \
     CodePipelineBucket="$CODEPIPELINE_BUCKET" \
-    Domain="$DOMAIN"
+    Domain="$DOMAIN" \
+    Certificate=$CERT
 
 #aws cloudformation create-stack \
 #  --disable-rollback \
