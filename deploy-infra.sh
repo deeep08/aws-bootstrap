@@ -75,7 +75,7 @@ aws cloudformation deploy \
 #  --region $REGION \
 #  --profile $CLI_PROFILE \
 #  --stack-name $STACK_NAME \
-#  --template-body file://main.yml \
+#  --template-body file:///Users/deeep08/Documents/Personal/github-deeep08/aws-bootstrap/cfn_output/main.yml \
 #  --capabilities CAPABILITY_NAMED_IAM \
 #  --parameter \
 #    ParameterKey=EC2InstanceType,ParameterValue=$EC2_INSTANCE_TYPE \
@@ -83,7 +83,9 @@ aws cloudformation deploy \
 #    ParameterKey=GitHubRepo,ParameterValue="$GH_REPO" \
 #    ParameterKey=GitHubBranch,ParameterValue=$GH_BRANCH \
 #    ParameterKey=GitHubPersonalAccessToken,ParameterValue="$GH_ACCESS_TOKEN" \
-#    ParameterKey=CodePipelineBucket,ParameterValue="$CODEPIPELINE_BUCKET"
+#    ParameterKey=CodePipelineBucket,ParameterValue="$CODEPIPELINE_BUCKET" \
+#    ParameterKey=Domain,ParameterValue="$DOMAIN" \
+    ParameterKey=Certificate,ParameterValue="$CERT"
 
 # If the deploy succeeded, show the DNS name of the created instance
 if [ $? -eq 0 ]; then
