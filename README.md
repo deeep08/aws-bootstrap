@@ -46,3 +46,5 @@ You may need to update the following variables in the script "deploy-infra.sh" t
     <li>CODEPIPELINE_BUCKET</li>
     <li>CFN_BUCKET</li>
 </ul>
+
+The above script print the endpoint using which the site can be opened.
