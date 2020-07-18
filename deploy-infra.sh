@@ -85,7 +85,7 @@ aws cloudformation deploy \
 #    ParameterKey=GitHubPersonalAccessToken,ParameterValue="$GH_ACCESS_TOKEN" \
 #    ParameterKey=CodePipelineBucket,ParameterValue="$CODEPIPELINE_BUCKET" \
 #    ParameterKey=Domain,ParameterValue="$DOMAIN" \
-    ParameterKey=Certificate,ParameterValue="$CERT"
+#    ParameterKey=Certificate,ParameterValue="$CERT"
 
 # If the deploy succeeded, show the DNS name of the created instance
 if [ $? -eq 0 ]; then
